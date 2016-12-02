@@ -1,0 +1,23 @@
+{
+  "name": "wikipedia-reverts-to-mongodb",
+  "version": "1.0.0",
+  "description": "A simple script to import Wikipedia reverts CSV to MongoDB.",
+  "main": "import.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AmenRa666/wikipedia-reverts-to-mongodb.git"
+  },
+  "author": "Elias Bassani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AmenRa666/wikipedia-reverts-to-mongodb/issues"
+  },
+  "homepage": "https://github.com/AmenRa666/wikipedia-reverts-to-mongodb#readme",
+  "dependencies": {
+    "mongoose": "^4.7.1",
+    "sync": "^0.2.5"
+  }
+}
