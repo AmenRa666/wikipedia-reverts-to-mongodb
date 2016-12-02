@@ -3,7 +3,7 @@ var mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/wikipedia')
 
 // models
-var Revert = require('../models/article.js').Revert
+var Revert = require('../models/revert.js').Revert
 
 // get notified if we connect successfully or if a connection error occurs
 var db = mongoose.connection

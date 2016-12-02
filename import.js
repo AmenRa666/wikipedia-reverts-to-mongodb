@@ -3,9 +3,9 @@ const fs = require('fs');
 const inspect = require('util').inspect;
 const Sync = require('sync');
 // Database Agent
-const dbAgent = require('../dbAgent.js')
+const dbAgent = require('./dbAgent.js')
 // Models
-const Revert = require('../models/revert.js')
+const Revert = require('./models/revert.js')
 
 
 // LOGIC
@@ -40,7 +40,7 @@ rs.on('data', (chunk) => {
         revert.articleTitle = previousLine
         revert.revertCount = revertCount
 
-        Sync(function(){
+        Sync(() => {
           dbAgent.insertRevert.sync(null, revert)
         })
 
@@ -54,14 +54,18 @@ rs.on('data', (chunk) => {
         previousLine = line
         revertCount = 1
       }
-      console.log(j + ' Article: ' + line + ' - Line number: ' + articleCount);
+      console.log(j + ' Article: ' + line + ' - Article count: ' + articleCount);
       previousLine = line
       j++
     }
   }
 });
 rs.on('end', () => {
-  // optionally process `buffer` here if you want to treat leftover data without
-  // a newline as a "line"
+  revert.articleTitle = previousLine
+  revert.revertCount = revertCount
+
+  Sync(() => {
+    dbAgent.insertRevert.sync(null, revert)
+  })
   console.log('ended on non-empty buffer: ' + inspect(buffer));
 });

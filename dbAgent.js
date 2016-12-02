@@ -16,11 +16,9 @@ const insertRevert = (revert, callback) => {
   Revert.create(revert, (err, obj) => {
     if (err) return handleError(err)
     else {
-      // console.log('Revert saved!')
       process.nextTick(function(){
         callback(null, 'Revert Saved')
       })
-      // cb(null, 'Revert Saved')
     }
   })
 }
@@ -34,4 +32,5 @@ const findRevertsByArticleTitle = (articleTitle, cb) => {
 }
 
 // EXPORTS
+module.exports.insertRevert = insertRevert
 module.exports.findRevertsByArticleTitle = findRevertsByArticleTitle
