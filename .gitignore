@@ -38,3 +38,6 @@ jspm_packages
 
 # Reverted Edits
 RevertedEdits*
+
+# SQL files
+.sql
