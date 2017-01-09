@@ -41,3 +41,6 @@ RevertedEdits*
 
 # SQL files
 .sql
+
+# CSV files
+.csv
